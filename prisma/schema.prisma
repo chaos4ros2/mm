@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Prefecture {
+    id               Int          @default(autoincrement()) @id
+	name             String
+    display_order    Int
+    display_flag     Boolean
+
+	Facility         Facility[] 
+	@@map(name: "prefectures") 
+}
+
+model Workplace {
+    id               Int          @default(autoincrement()) @id
+	employee         Employee     @relation(fields: [employee_id], references: [id])
+    employee_id      Int
+	facility         Facility     @relation(fields: [facility_id], references: [id])
+    facility_id      Int
+	@@map(name: "workplaces") 
+}
+
+model Facility {
+	id               Int          @default(autoincrement()) @id 
+	name             String
+	address          String
+	created_at       DateTime?    @default(now())
+	updated_at       DateTime?    @default(now())
+	delete_date      DateTime?    @default(now())
+	
+	prefecture       Prefecture?  @relation(fields: [prefecture_id], references: [id])
+    prefecture_id    Int?
+	Manager          Manager?
+    Workplace        Workplace[]
+	Information      Information[]  
+	@@map(name: "facilitys") 
+}
+
+// 命名規則
+// https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#mapping-model-names-to-tables-or-collections
+// https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#naming-conventions
+// employees => Employee 
+// model employeesも可能
+model Employee {
+	id               Int          @default(autoincrement()) @id
+    // array facility_id FK "facilitys.id（複数の可能性あり）" 
+	name             String
+    gender           Int
+	birth            DateTime?
+	phone_number     String?
+	emergency_contact String?
+	info_1           String?      @map(name: "personal_information_1") 
+	info_2           String?      @map(name: "personal_information_2") 
+    info_3           String?      @map(name: "personal_information_3") 
+    info_4           String?      @map(name: "personal_information_4") 
+    info_5           String?      @map(name: "personal_information_5") 
+　  note             String?
+	created_at       DateTime?    @default(now())
+	updated_at       DateTime?    @default(now())
+	delete_date      DateTime?    @default(now())
+
+	Workplace        Workplace[]
+	Information      Information[] 
+	@@map(name: "employees") 
+}
+
+model Manager {
+	id               Int          @default(autoincrement()) @id
+	name             String
+    gender           Int
+	birth            DateTime?
+	phone_number     String?
+	position         String?
+	info_1           String?      @map(name: "personal_information_1") 
+	info_2           String?      @map(name: "personal_information_2") 
+    info_3           String?      @map(name: "personal_information_3") 
+    info_4           String?      @map(name: "personal_information_4") 
+    info_5           String?      @map(name: "personal_information_5") 
+　  note             String?
+	created_at       DateTime?    @default(now())
+	updated_at       DateTime?    @default(now())
+	delete_date      DateTime?    @default(now())
+
+	facility         Facility     @relation(fields: [facility_id], references: [id])
+    facility_id      Int          @unique
+	@@map(name: "managers") 
+}
+
+model Information {
+	id               Int          @default(autoincrement()) @id
+	title            String
+	text             String
+	created_at       DateTime?    @default(now())
+	updated_at       DateTime?    @default(now())
+	delete_date      DateTime?    @default(now())
+
+	facility         Facility     @relation(fields: [facility_id], references: [id])
+    facility_id      Int
+	employee         Employee     @relation(fields: [employee_id], references: [id])
+    employee_id      Int
+	@@map(name: "informations") 
+}
