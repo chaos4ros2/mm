@@ -1,3 +1,8 @@
+/* https://tailwindcss.com/docs/guides/nextjs */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
