@@ -35,14 +35,18 @@ const LocationHeader = ( {} ) => {
             <div className="text-sm grow shrink-0 mr-4">
                 <div className={`ml-32 font-semibold text-lg text-white ${showItemFlag ? 'hidden' : ''}`}>メンバー名簿</div>
                 <input 
-                    className={`ml-24 font-semibold text-lg ${!showItemFlag ? 'hidden' : ''}`}
+                    className={`w-48 ml-24 font-semibold text-lg ${!showItemFlag ? 'hidden' : ''}`}
                     onChange={ (e) => e.target.value ?  setIssetValue(true) : setIssetValue(false) }
                 /> 
             </div>
             {userList?.map((user) => 
-                <li className="pb-4 flex" key={user.id}>
-                    {user.name} 
-                </li>
+                <div className="absolute w-48 bg-white border border-solid border-gray-300 left-28 top-12 ml-1" key={user.id}>
+                    <ul>
+                        <li>
+                            {user.name}
+                        </li>
+                    </ul> 
+                </div>
             )}
             <div>
                 <SearchIcon 
