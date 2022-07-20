@@ -10,13 +10,17 @@ const LocationHeader = ( {} ) => {
     // ユーザーリスト 
     // Todo: react queryで書き換える
     const [ userList, setUserList ] = useState([]);
-    
+    const [ filteredUserList, setFilteredUserList ] = useState(userList);
+
     // メンバー検索欄の表示非表示を制御
     const toggle_member_search_form = () => setShowItemFlag(!showItemFlag);
 
     // メンバー情報を検索
-    const search_member_info = () => {
-        console.log('test :>> ', 'test');
+    const search_member_info = (input) => {
+        const filtered_user_list = userList.filter(user => user.name.includes(input));
+        setFilteredUserList(filtered_user_list);
+        // 入力があるかどうか、ない場合インクリメントサーチ非表示
+        input ? setIssetValue(true) : setIssetValue(false);
     }
 
     useEffect(() => {
@@ -36,11 +40,14 @@ const LocationHeader = ( {} ) => {
                 <div className={`ml-32 font-semibold text-lg text-white ${showItemFlag ? 'hidden' : ''}`}>メンバー名簿</div>
                 <input 
                     className={`w-48 ml-24 font-semibold text-lg ${!showItemFlag ? 'hidden' : ''}`}
-                    onChange={ (e) => e.target.value ?  setIssetValue(true) : setIssetValue(false) }
+                    onChange={ (e) => search_member_info(e.target.value) }
                 /> 
             </div>
-            {userList?.map((user) => 
-                <div className="absolute w-48 bg-white border border-solid border-gray-300 left-28 top-12 ml-1" key={user.id}>
+            {filteredUserList?.map((user) => 
+                <div 
+                    className={`absolute w-48 bg-white border border-solid border-gray-300 left-28 top-12 ml-1 ${!showItemFlag || !issetValue ? 'hidden' : ''}`} 
+                    key={user.id}
+                >
                     <ul>
                         <li>
                             {user.name}
@@ -50,7 +57,7 @@ const LocationHeader = ( {} ) => {
             )}
             <div>
                 <SearchIcon 
-                    onClick={issetValue ? search_member_info : toggle_member_search_form} 
+                    onClick={ toggle_member_search_form } 
                     className="text-white mr-4 cursor-pointer"
                 />
             </div>
