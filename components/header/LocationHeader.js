@@ -39,13 +39,13 @@ const LocationHeader = ( {} ) => {
             <div className="text-sm grow shrink-0 mr-4">
                 <div className={`ml-32 font-semibold text-lg text-white ${showItemFlag ? 'hidden' : ''}`}>メンバー名簿</div>
                 <input 
-                    className={`w-48 ml-24 font-semibold text-lg ${!showItemFlag ? 'hidden' : ''}`}
+                    className={`w-48 ml-24 font-semibold text-lg p-1 ${!showItemFlag ? 'hidden' : ''}`}
                     onChange={ (e) => search_member_info(e.target.value) }
                 /> 
             </div>
             {filteredUserList?.map((user) => 
                 <div 
-                    className={`absolute w-48 bg-white border border-solid border-gray-300 left-28 top-12 ml-1 ${!showItemFlag || !issetValue ? 'hidden' : ''}`} 
+                    className={`absolute w-48 bg-white border border-solid border-gray-300 left-28 top-14 ml-1 ${!showItemFlag || !issetValue ? 'hidden' : ''}`} 
                     key={user.id}
                 >
                     <ul>

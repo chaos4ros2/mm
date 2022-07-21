@@ -1,7 +1,7 @@
 import prisma from '../../lib/prisma';
 
-// POST /api/user
-// Required fields in body: name, email
+// POST /api/userList
+// Required fields in body: id, name
 export default async function handle(req, res) {
     const user_list = await prisma.Employee.findMany({
         where: {
