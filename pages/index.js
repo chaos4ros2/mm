@@ -5,14 +5,14 @@ import Layout from '../components/Layout'
 import LocationBody from '../components/body/LocationBody';
 
 export default function Home() {
-  return (
-      <Layout
-          meta={{
-              title: 'メンバー名簿',
-              description: 'メンバー管理',
-          }}
-      >
-        <LocationBody />
-      </Layout>
-  )
+    return (
+        <Layout
+            meta={{
+                title: 'メンバー名簿',
+                description: 'メンバー管理',
+            }}
+        >
+            <LocationBody />
+        </Layout>
+    )
 }
