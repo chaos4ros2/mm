@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-const FacilityBody = ( {} ) => {
+const FacilityBody = ( { id } ) => {
     // 施設リスト 
     // Todo: react queryで書き換える
     const [ facilityList, setFacilityList ] = useState([]);
@@ -8,13 +8,13 @@ const FacilityBody = ( {} ) => {
     useEffect(() => {
         // 施設リスト取得
         const getFacilityList = async() => {
-            const res = await fetch(`http://localhost:3000/api/facilityList`);
+            const res = await fetch(`http://localhost:3000/api/facilityList?id=${id}`);
             // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
             const facility_list = await res.json();
             setFacilityList(facility_list);
         }
-        getFacilityList();
-    }, []);
+        if (id) getFacilityList();
+    }, [id]);
 
     return (
         <div className="w-auto grow flex flex-col items-center text-center">
