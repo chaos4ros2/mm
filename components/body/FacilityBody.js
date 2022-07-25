@@ -25,6 +25,7 @@ const FacilityBody = ( { id } ) => {
                     key={facility.id}
                 >
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{facility.name}</h5>
+                    <p className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{facility.address}</p>
                 </a>
             )}
         </div>
