@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Layout from '../components/Layout'
-import LocationBody from '../components/body/LocationBody';
+import HomeBody from '../components/body/HomeBody';
 
 export default function Home() {
     return (
@@ -12,7 +12,7 @@ export default function Home() {
                 description: 'メンバー管理',
             }}
         >
-            <LocationBody />
+            <HomeBody />
         </Layout>
     )
 }

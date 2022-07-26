@@ -1,5 +1,5 @@
 import Layout from '../../components/Layout'
-import FacilityBody from '../../components/body/FacilityBody';
+import LocationBody from '../../components/body/LocationBody';
 import { useRouter } from 'next/router'
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
                 description: 'メンバー管理',
             }}
         >
-            <FacilityBody             
+            <LocationBody             
                 id={id} 
             />
         </Layout>
