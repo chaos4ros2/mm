@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Header from './Header';
 
 const Layout = ({ children, meta }) => {
-    const {title, description, icon } = meta;
+    const {title, description, name, icon } = meta;
     
     return (
         <div>
@@ -12,7 +12,9 @@ const Layout = ({ children, meta }) => {
                 <link rel='icon' href={icon || '/favicon.ico'} />
             </Head>
             <main>
-                <Header />
+                <Header 
+                    name={name}
+                />
                 {/*<Footer /> */}
                 <main>{children}</main>
             </main>
