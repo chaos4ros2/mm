@@ -20,7 +20,7 @@ const LocationBody = ( { id } ) => {
         <div className="w-auto grow flex flex-col items-center text-center">
             {facilityList?.map((facility) => 
                 <a 
-                    href="#" 
+                    href={`/facility/${facility.id}?name=${facility.name}`}  
                     className="w-3/4 block p-6 m-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" 
                     key={facility.id}
                 >

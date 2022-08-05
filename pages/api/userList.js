@@ -10,6 +10,7 @@ export default async function handle(req, res) {
         select: {
             id: true,
             name: true,
+            phone_number: true,
         }
     });
     res.json(user_list);
