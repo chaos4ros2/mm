@@ -44,7 +44,7 @@ const FacilityBody = ( { data } ) => {
 
             <div className="w-auto grow flex flex-row items-center text-center">
                 <a 
-                    href={`./facility/${facilityDetail.id}?name=${facilityDetail.name}`}  
+                    href={`/facility/${facilityDetail.id}?name=${facilityDetail.name}`}  
                     className="w-1/2 h-40 block p-6 m-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" 
                     key={facilityDetail.id}
                 >
@@ -53,7 +53,7 @@ const FacilityBody = ( { data } ) => {
                 </a>
 
                 <a 
-                    href={`./facility/${facilityDetail.id}?name=${facilityDetail.name}`}  
+                    href={`/manager/${facilityDetail.Manager?.id}?name=${facilityDetail.Manager?.name}`}  
                     className="w-1/2 h-40 block p-6 m-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" 
                     key={facilityDetail.Manager?.id}
                 >
