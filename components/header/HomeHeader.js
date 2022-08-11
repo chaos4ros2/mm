@@ -43,18 +43,15 @@ const HomeHeader = ( {} ) => {
                     onChange={ (e) => search_member_info(e.target.value) }
                 /> 
             </div>
-            {filteredUserList?.map((user) => 
-                <div 
-                    className={`absolute w-48 bg-white border border-solid border-gray-300 left-28 top-14 ml-1 ${!showItemFlag || !issetValue ? 'hidden' : ''}`} 
-                    key={user.id}
-                >
-                    <ul>
-                        <li>
-                            {user.name}
-                        </li>
-                    </ul> 
-                </div>
-            )}
+            <ul className={`absolute w-48 bg-white border border-solid border-gray-300 left-28 top-14 ml-1 ${!showItemFlag || !issetValue ? 'hidden' : ''}`} >
+                {filteredUserList?.map((user) => 
+                    <li 
+                        className="border border-solid border-gray-100"
+                        key={user.id}>
+                        {user.name}
+                    </li>
+                )}
+            </ul>
             <div>
                 <SearchIcon 
                     onClick={ toggle_member_search_form } 
