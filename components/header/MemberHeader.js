@@ -12,7 +12,7 @@ const MemberHeader = ( {} ) => {
             <div className="text-sm grow shrink-0 mr-4">
                 <div className={`ml-44 font-semibold text-lg text-white`}>{name}</div>
             </div>
-            <a href={`/affiliation/${id}`} target='_blank'>
+            <a href={`/affiliation/${id}?name=${name}`} target='_blank'>
                 <ListAlt 
                     className="text-white mr-4 cursor-pointer"
                 />

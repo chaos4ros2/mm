@@ -20,7 +20,7 @@ model Prefecture {
 	@@map(name: "prefectures") 
 }
 
-model Workplace {
+model Workplace { // Todo：mysqlで[]を使えることを確認できたら不要になる。
     id               Int          @default(autoincrement()) @id
 	employee         Employee     @relation(fields: [employee_id], references: [id])
     employee_id      Int
@@ -40,7 +40,7 @@ model Facility {
 	prefecture       Prefecture?  @relation(fields: [prefecture_id], references: [id])
     prefecture_id    Int?
 	Manager          Manager?
-    Workplace        Workplace[]
+    Workplace        Workplace[] // Todo： Employee[]に変えることで施設の詳細も取得、一時テーブルWorkplace不要（mysql要確認）
 	Information      Information[]  
 	@@map(name: "facilitys") 
 }
@@ -63,12 +63,12 @@ model Employee {
     info_3           String?      @map(name: "personal_information_3") 
     info_4           String?      @map(name: "personal_information_4") 
     info_5           String?      @map(name: "personal_information_5") 
-　  note             String?
+    note             String?
 	created_at       DateTime?    @default(now())
 	updated_at       DateTime?    @default(now())
 	delete_date      DateTime?    
 
-	Workplace        Workplace[]
+	Workplace        Workplace[] // Todo： Facility[]に変えることで施設の詳細も取得、一時テーブルWorkplace不要（mysql要確認）
 	Information      Information[] 
 	@@map(name: "employees") 
 }
@@ -85,7 +85,7 @@ model Manager {
     info_3           String?      @map(name: "personal_information_3") 
     info_4           String?      @map(name: "personal_information_4") 
     info_5           String?      @map(name: "personal_information_5") 
-　  note             String?
+    note             String?
 	created_at       DateTime?    @default(now())
 	updated_at       DateTime?    @default(now())
 	delete_date      DateTime?    
