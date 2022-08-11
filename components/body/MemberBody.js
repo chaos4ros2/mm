@@ -16,12 +16,12 @@ const MemberBody = ( { data } ) => {
             const member_info = await res.json();
             setMemberInfo(member_info);
         }
+
         if (id) {
             getMemberInfo();
-            // 情報をまとめる
             setInfoArray([MemberInfo?.info_1, MemberInfo?.info_2, MemberInfo?.info_3, MemberInfo?.info_4, MemberInfo?.info_5]);
         }
-    }, [id]);
+    }, [id, MemberInfo]);
 
     return (
         <div className="">
