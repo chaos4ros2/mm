@@ -11,7 +11,7 @@ const FacilityBody = ( { data } ) => {
     useEffect(() => {
         // 施設リスト取得
         const getFacilityInfo = async() => {
-            const res = await fetch(`http://localhost:3000/api/facilityInfo?id=${id}`);
+            const res = await fetch(`https://mm-taupe.vercel.app/api/facilityInfo?id=${id}`);
             // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
             const facility_detail = await res.json();
             setFacilityDetail(facility_detail);

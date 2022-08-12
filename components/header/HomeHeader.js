@@ -26,7 +26,7 @@ const HomeHeader = ( {} ) => {
     useEffect(() => {
         // ユーザーリスト取得
         const getUserList = async() => {
-            const res = await fetch(`http://localhost:3000/api/userList`);
+            const res = await fetch(`https://mm-taupe.vercel.app/api/userList`);
             // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
             const user_list = await res.json();
             setUserList(user_list);

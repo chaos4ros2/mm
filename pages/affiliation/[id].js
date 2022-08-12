@@ -38,7 +38,7 @@ export async function getServerSideProps(context) {
     //     }
     // });
     const id = context.query.id;
-    const res = await fetch(`http://localhost:3000/api/memberInfo?id=${id}`);
+    const res = await fetch(`https://mm-taupe.vercel.app/api/memberInfo?id=${id}`);
     // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
     const member_info = await res.json();
 
