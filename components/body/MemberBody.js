@@ -34,8 +34,8 @@ const MemberBody = ( { data } ) => {
                 <div className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">性別　{MemberInfo?.name}</div>
                 <div className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">年齢　{MemberInfo?.name}</div>
             </div>
-            {InfoArray?.map((info) => 
-                <div className="w-auto grow flex flex-row items-center text-center">
+            {InfoArray?.map((info, index) => 
+                <div className="w-auto grow flex flex-row items-center text-center" key={`${index}`}>
                     <div 
                         className="w-full block p-2 mb-2 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" 
                     >
