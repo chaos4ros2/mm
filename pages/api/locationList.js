@@ -13,5 +13,5 @@ export default async function handle(req, res) {
             display_order: true
         }
     });
-    res.json(location_list);
+    res.status(200).json(location_list);
 }

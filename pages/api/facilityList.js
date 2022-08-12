@@ -16,5 +16,5 @@ export default async function handle(req, res) {
             address: true
         }
     });
-    res.json(facility_list);
+    res.status(200).json(facility_list);
 }

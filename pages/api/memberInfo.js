@@ -26,5 +26,5 @@ export default async function handle(req, res) {
             Workplace: true,
         }
     });
-    res.json(member_info);
+    res.status(200).json(member_info);
 }

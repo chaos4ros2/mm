@@ -13,5 +13,5 @@ export default async function handle(req, res) {
             phone_number: true,
         }
     });
-    res.json(user_list);
+    res.status(200).json(user_list);
 }
