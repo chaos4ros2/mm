@@ -24,7 +24,7 @@ export default function Home(props) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
     // 直接prismaのコードを書くのができるが、すでにapiで同じことを使用していたためapi呼び出しを使う
     // pageごとにprismaで取得するコードを書くより、統一のapiを使ったほうがスマートだが、どういう値を取れるのか
     // をコメントで書いたほうがいい。（typeスクリプトなら解決かも）
@@ -38,7 +38,8 @@ export async function getServerSideProps() {
     //         phone_number: true,
     //     }
     // });
-    const res = await fetch(`https://mm-taupe.vercel.app/api/userList`);
+    const hostname = context.req.headers.host;
+    const res = await fetch(`https://${hostname}/api/userList`);
     // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
     const user_list = await res.json();
     return {

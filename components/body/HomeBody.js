@@ -9,7 +9,7 @@ const HomeBody = ( {} ) => {
     useEffect(() => {
         // 地域リスト取得
         const getLocationList = async() => {
-            const res = await fetch(`https://mm-taupe.vercel.app/api/locationList`);
+            const res = await fetch(`https://${window.location.host}/api/locationList`);
             // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
             const location_list = await res.json();
             setLocationList(location_list);

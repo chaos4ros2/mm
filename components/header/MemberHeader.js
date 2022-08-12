@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import ListAlt from '@mui/icons-material/ListAlt';
 
 const MemberHeader = ( {} ) => {
-    const router = useRouter()
+    const router = useRouter();
     const { id, name } = router.query;
     // const {title, description, icon } = meta;
 
