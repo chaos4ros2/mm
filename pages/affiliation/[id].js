@@ -48,6 +48,7 @@ export async function getServerSideProps(context) {
         facility_id_array.push(workplace.facility_id);
     });
 
+    // 参考：https://stackoverflow.com/questions/69857000/prisma-how-can-i-find-all-elements-that-match-an-id-list
     const facility_list = await prisma.Facility.findMany({
         where: {
             id: { in: facility_id_array },

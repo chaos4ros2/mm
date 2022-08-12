@@ -48,7 +48,7 @@ const HomeHeader = ( {} ) => {
                     <li 
                         className="border border-solid border-gray-100"
                         key={user.id}>
-                        {user.name}
+                        <a href={`/member/${user.id}?name=${user.name}`} >{user.name}</a>
                     </li>
                 )}
             </ul>

@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 
 const FacilityBody = ( { data } ) => {
     const {id, user_list } = data;
-    console.log('user_list :>> ', user_list);
+
     // 施設リスト 
     // Todo: react queryで書き換える
     const [ facilityDetail, setFacilityDetail ] = useState([]);
@@ -14,7 +14,6 @@ const FacilityBody = ( { data } ) => {
             const res = await fetch(`http://localhost:3000/api/facilityInfo?id=${id}`);
             // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
             const facility_detail = await res.json();
-            // console.log('facility_detail :>> ', facility_detail);
             setFacilityDetail(facility_detail);
             // 施設で務める従業員のid
             const employee_id_array = [];
@@ -24,10 +23,7 @@ const FacilityBody = ( { data } ) => {
             // 従業員詳細情報とくっつける
             const member_list = user_list.filter(user => employee_id_array.includes(user.id));
             setMemberList(member_list);
-            // console.log('memberList :>> ', member_list);
-            console.log('facility_detail :>> ', facilityDetail);
         }
-        console.log(facilityDetail, memberList);
         // https://rios-studio.com/tech/react-hook%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8Btimeout%E3%81%A8timeinterval%E3%80%90%E6%AD%A2%E3%81%BE%E3%82%89%E3%81%AA%E3%81%84%E3%83%BB%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E3%80%91
         // 第二引数設定して止まらないため、応急処置としてsetIntervalを設定する
         const interval = setInterval(() => {
@@ -39,7 +35,7 @@ const FacilityBody = ( { data } ) => {
     return (
         <div className="">
             <div className="bg-cyan-500 p-1 mb-1 mt-5">
-                <div className="ml-32 font-semibold text-lg text-white">施設情報</div>
+                <div className="ml-48 font-semibold text-lg text-white">施設情報</div>
             </div>
 
             <div className="w-auto grow flex flex-row items-center text-center">
@@ -64,7 +60,7 @@ const FacilityBody = ( { data } ) => {
             </div>
 
             <div className="bg-cyan-500 p-1 mb-1 mt-5">
-                <div className="ml-32 font-semibold text-lg text-white">担当メンバーリスト</div>
+                <div className="ml-36 font-semibold text-lg text-white">担当メンバーリスト</div>
             </div>
             <div className="w-auto grow flex flex-col items-center text-center">
                 {memberList?.map((member) => 
