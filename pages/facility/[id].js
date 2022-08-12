@@ -39,7 +39,7 @@ export async function getServerSideProps(context) {
     //     }
     // });
     const hostname = context.req.headers.host;
-    const res = await fetch(`https://${hostname}/api/userList`);
+    const res = await fetch(`http://${hostname}/api/userList`);
     // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
     const user_list = await res.json();
     return {
