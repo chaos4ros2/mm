@@ -1,4 +1,4 @@
-import prisma from '../../lib/prisma';
+// import prisma from '../../lib/prisma';
 
 // POST /api/userList
 // Required fields in body: id, name
