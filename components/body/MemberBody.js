@@ -41,7 +41,7 @@ const MemberBody = ( { data } ) => {
                         className="w-full block p-2 mb-2 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" 
                     >
                         <SearchIcon 
-                            className="cursor-pointer flex relative top-7"
+                            className="cursor-pointer flex relative top-7 mr-32"
                         />
                         <p className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{info}</p>
                     </div>

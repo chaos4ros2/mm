@@ -27,7 +27,7 @@ const HomeBody = ( {} ) => {
                     key={location.id}
                 >
                     <SearchIcon 
-                        className="cursor-pointer flex relative top-7"
+                        className="cursor-pointer flex relative top-7 mr-32"
                     />
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{location.name}</h5>
                 </a>
