@@ -8,7 +8,8 @@ const LocationBody = ( { id } ) => {
     useEffect(() => {
         // 施設リスト取得
         const getFacilityList = async() => {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/facilityList?id=${id}`);
+            // const res = await fetch(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/facilityList?id=${id}`);
+            const res = await fetch(`https://mm-taupe.vercel.app/api/facilityList?id=${id}`);
             // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
             const facility_list = await res.json();
             setFacilityList(facility_list);

@@ -39,7 +39,8 @@ export async function getServerSideProps(context) {
     //     }
     // });
     const hostname = context.req.headers.host;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/userList`);
+    // const res = await fetch(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/userList`);
+    const res = await fetch(`https://mm-taupe.vercel.app/api/userList`);
     // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
     const user_list = await res.json();
     return {
