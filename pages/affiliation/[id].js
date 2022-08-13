@@ -1,6 +1,7 @@
 import Layout from '../../components/Layout'
 import AffiliationBody from '../../components/body/AffiliationBody';
 import { useRouter } from 'next/router'
+import prisma from '../../lib/prisma';
 
 export default function Home(props) {
     const router = useRouter()
@@ -40,7 +41,7 @@ export async function getServerSideProps(context) {
     const id = context.query.id;
     const hostname = context.req.headers.host;
 
-    const res = await fetch(`http://${hostname}/api/memberInfo?id=${id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/memberInfo?id=${id}`);
     // https://github.com/prisma/prisma-examples/blob/latest/javascript/rest-nextjs/pages/p/%5Bid%5D.jsx#L65
     const member_info = await res.json();
 
