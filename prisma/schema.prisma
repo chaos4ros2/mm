@@ -81,6 +81,7 @@ model Manager {
 	birth            DateTime?
 	phone_number     String?
 	position         String?
+	address			 String?
 	info_1           String?      @map(name: "personal_information_1") 
 	info_2           String?      @map(name: "personal_information_2") 
     info_3           String?      @map(name: "personal_information_3") 
