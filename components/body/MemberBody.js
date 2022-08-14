@@ -8,6 +8,30 @@ const MemberBody = ( { data } ) => {
     const [ MemberInfo, setMemberInfo ] = useState([]);
     const [ InfoArray, setInfoArray ] = useState([]);
 
+    /**
+     * 
+     * @param {String} birthday_string 誕生日文字列
+     * @returns {Integer}
+     */
+    const getAge = birthday_string => {
+        const birthday = new Date(birthday_string);
+        //今日
+        const today = new Date();
+     
+        //今年の誕生日
+        const thisYearsBirthday = new Date(today.getFullYear(), birthday.getMonth - 1, birthday.getDate);
+
+        //年齢
+        const age = today.getFullYear() - birthday.getFullYear();
+
+        if (today < thisYearsBirthday) {
+            //今年まだ誕生日が来ていない
+            age--;
+        }
+    
+        return age;
+    }
+    
     useEffect(() => {
         // 地域リスト取得
         const getMemberInfo = async() => {
@@ -21,6 +45,7 @@ const MemberBody = ( { data } ) => {
         if (id) {
             getMemberInfo();
             setInfoArray([MemberInfo?.info_1, MemberInfo?.info_2, MemberInfo?.info_3, MemberInfo?.info_4, MemberInfo?.info_5]);
+            console.log('MemberInfo :>> ', MemberInfo);
         }
     }, [id, MemberInfo]);
 
@@ -32,8 +57,10 @@ const MemberBody = ( { data } ) => {
 
             <div className="w-auto text-center">
                 <div className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">名前　{MemberInfo?.name}</div>
-                <div className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">性別　{MemberInfo?.name}</div>
-                <div className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">年齢　{MemberInfo?.name}</div>
+                <div className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">性別　{MemberInfo?.gender === 1 ? '男' : '女'}</div>
+                <div className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">年齢　{getAge(MemberInfo?.birth)}</div>
+                <div className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">住所　{MemberInfo?.address}</div>
+                <div className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">緊急連絡先　{MemberInfo?.emergency_contact}</div>
             </div>
             {InfoArray?.map((info, index) => 
                 <div className="w-auto grow flex flex-row items-center text-center" key={`${index}`}>
