@@ -16,6 +16,7 @@ export default async function handle(req, res) {
             name: true,
             gender: true,
             emergency_contact: true,
+            address: true,
             birth: true,
             info_1: true,
             info_2: true,
