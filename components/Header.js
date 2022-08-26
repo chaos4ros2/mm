@@ -4,6 +4,7 @@ import LocationHeader from './header/LocationHeader';
 import FacilityHeader from './header/FacilityHeader';
 import MemberHeader from './header/MemberHeader';
 import AffiliationHeader from './header/AffiliationHeader';
+import InformationHeader from './header/InformationHeader';
 import { useRouter } from "next/router";
 
 const Header = ({ name }) => {
@@ -25,6 +26,7 @@ const Header = ({ name }) => {
                 router.pathname === "/facility/[id]" ? <FacilityHeader name={name} /> :
                 router.pathname === "/member/[id]" ? <MemberHeader /> :
                 router.pathname === "/affiliation/[id]" ? <AffiliationHeader /> :
+                router.pathname === "/information/[id]" ? <InformationHeader /> :
                 <HomeHeader />}
         </nav>
     ); 

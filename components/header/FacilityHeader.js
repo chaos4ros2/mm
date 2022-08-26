@@ -4,7 +4,7 @@ import CalendarMonth from '@mui/icons-material/CalendarMonth';
 
 const FacilityHeader = ( { name } ) => {
     const router = useRouter();
-    const { id, name } = router.query;
+    const { id,  } = router.query; // 2番目の引数は施設名
     // const {title, description, icon } = meta;
 
     return (
