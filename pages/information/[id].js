@@ -39,12 +39,13 @@ export async function getServerSideProps(context) {
     //     }
     // });
     const id = context.query.id;
+
     // 月初と月末日付
     // https://qiita.com/su_mi/items/2f086817a4dd0b05f304
     const date = new Date();
-    const bm = new Date(date.setDate(1)); // beginning of the month
+    const bm = context.query.start ? new Date(`${context.query.start} 00:00:00`) : new Date(date.setDate(1)); // beginning of the month
     date.setMonth(date.getMonth() + 1);
-    const em = new Date(date.setDate(0));
+    const em = context.query.end ? new Date(`${context.query.end} 23:59:59`)  : new Date(date.setDate(0));
 
     // 参考：https://stackoverflow.com/questions/69857000/prisma-how-can-i-find-all-elements-that-match-an-id-list
     const data = await prisma.Information.findMany({
