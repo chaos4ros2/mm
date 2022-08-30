@@ -64,7 +64,7 @@ const InformationBody = ( { data } ) => {
             <div className="w-auto grow flex flex-col items-center text-center">
                 {information_list?.map((information) => 
                     <a 
-                        href={`/facility/${information.id}?name=${information.title}`}  
+                        href={`/detail/${information.id}`}  
                         className="w-3/4 block p-6 m-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" 
                         key={information.id}
                     >
