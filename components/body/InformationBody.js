@@ -9,7 +9,7 @@ const InformationBody = ( { data } ) => {
 
     const formatDate = (current_datetime_string) => {
         const current_datetime = new Date(current_datetime_string);
-        const formatted_date = `${current_datetime.getFullYear()}-${current_datetime.getMonth() + 1}-${current_datetime.getDate()} ${current_datetime.getHours()}:${current_datetime.getMinutes()}:${current_datetime.getSeconds()}`;
+        const formatted_date = `${current_datetime.getFullYear()}・${(current_datetime.getMonth() + 1).toString().padStart(2, '0')}・${current_datetime.getDate().toString().padStart(2, '0')}　${current_datetime.getHours().toString().padStart(2, '0')} : ${current_datetime.getMinutes().toString().padStart(2, '0')} : ${current_datetime.getSeconds().toString().padStart(2, '0')}`;
         return formatted_date;
     }
 
