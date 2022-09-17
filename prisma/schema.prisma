@@ -92,7 +92,7 @@ model Manager {
 	updated_at       DateTime?    @default(now())
 	delete_date      DateTime?    
 
-	facility         Facility     @relation(fields: [facility_id], references: [id])
+	facility         Facility     @relation(fields: [facility_id], references: [id]) // Todo: Facilityに変える
     facility_id      Int          @unique
 	@@map(name: "managers") 
 }

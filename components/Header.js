@@ -3,6 +3,7 @@ import HomeHeader from './header/HomeHeader';
 import LocationHeader from './header/LocationHeader';
 import FacilityHeader from './header/FacilityHeader';
 import MemberHeader from './header/MemberHeader';
+import ManagerHeader from './header/ManagerHeader';
 import AffiliationHeader from './header/AffiliationHeader';
 import InformationHeader from './header/InformationHeader';
 import DetailHeader from './header/DetailHeader';
@@ -26,6 +27,7 @@ const Header = ({ name }) => {
             {   router.pathname === "/location/[id]" ? <LocationHeader name={name} /> : 
                 router.pathname === "/facility/[id]" ? <FacilityHeader name={name} /> :
                 router.pathname === "/member/[id]" ? <MemberHeader /> :
+                router.pathname === "/manager/[id]" ? <ManagerHeader /> :
                 router.pathname === "/affiliation/[id]" ? <AffiliationHeader /> :
                 router.pathname === "/information/[id]" ? <InformationHeader /> :
                 router.pathname === "/detail/[id]" ? <DetailHeader /> :
